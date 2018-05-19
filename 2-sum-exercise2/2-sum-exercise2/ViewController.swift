@@ -14,7 +14,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         //vbhjknlm,
         let resultsLabel = UILabel(frame: CGRect(x: 50, y: 50, width: 55, height: 55))
-        resultsLabel.text = "neki1" 
+        resultsLabel.text = "neki123" 
         self.view.addSubview(resultsLabel)
         
         let textInput = UITextField(frame: CGRect(x: 100, y: 100, width: 50, height: 50))
