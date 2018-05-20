@@ -30,14 +30,22 @@ class ViewController: UIViewController {
     var matriceForRotationUnlockView: CGFloat = -1
     var matriceForRotationSettingsView: CGFloat = -1
     
+    var animationFraction: CGFloat = 0{
+        didSet{
+            if (animationFraction > 1/2){
+            settingsView.layer.zPosition = settingsViewZPosition
+            unlockView.layer.zPosition = unlockViewZPosition
+            }
+        }
+    }
     
     var panRecognizer:UIPanGestureRecognizer!
 
-    
+    var progressGlobal: CGFloat = 0
     
     @IBOutlet weak var unlockView: UIView!
-    @IBOutlet weak var settingsView: UITableView!
-    
+    @IBOutlet weak var settingsView: UIView!
+
     @IBOutlet weak var BaseView: BaseView!{
         didSet{
         }
@@ -82,6 +90,7 @@ class ViewController: UIViewController {
         default:
             return
         }
+        
     }
     
     func startPanning() {
@@ -110,21 +119,24 @@ class ViewController: UIViewController {
         }
   
         animator = UIViewPropertyAnimator(duration: 1, dampingRatio: 0.8, animations: {
-    
+            
             var rotationWithPerspectiveForUnlockVIew = CATransform3DIdentity;
-            rotationWithPerspectiveForUnlockVIew.m34 = self.matriceForRotationUnlockView/500.0/2/2
+            rotationWithPerspectiveForUnlockVIew.m34 = self.matriceForRotationUnlockView/1000
             rotationWithPerspectiveForUnlockVIew = CATransform3DRotate(rotationWithPerspectiveForUnlockVIew, self.unlockView3DRotation, 0, 1, 0);
            
             var rotationWithPerspectiveForSettingsView = CATransform3DIdentity;
-            rotationWithPerspectiveForSettingsView.m34 = self.matriceForRotationSettingsView/500.0/2/2
+            rotationWithPerspectiveForSettingsView.m34 = self.matriceForRotationSettingsView/1000 //500.0/2/2
             rotationWithPerspectiveForSettingsView = CATransform3DRotate(rotationWithPerspectiveForSettingsView, self.settingsView3DRotation, 0, 1, 0);
             
             self.unlockView.layer.transform = rotationWithPerspectiveForUnlockVIew
             self.settingsView.layer.transform = rotationWithPerspectiveForSettingsView
   
         })
+          animationFraction = animator!.fractionComplete
+        
     }
     
+
     
     func doTheFlipping(translation: CGPoint){
         if let animator = self.animator {
@@ -132,16 +144,23 @@ class ViewController: UIViewController {
             
             switch currentState {
             case .unlockViewOpened, .settingsOpened:
-                progress = translation.x / self.view.frame.width
+                  progress = translation.x / self.view.frame.width
+                  progressGlobal = progress
                 if (Float(progress) > 1/2){
-                    settingsView.layer.zPosition = settingsViewZPosition
-                    unlockView.layer.zPosition = unlockViewZPosition
+
                 }
                 print(progress)
             default:
                 print("unknown state")
             }
             animator.fractionComplete = progress
+            animationFraction = animator.fractionComplete
+//            while (animator.state != .inactive){
+//                if (Float(progress) > 1/2){
+//                        settingsView.layer.zPosition = settingsViewZPosition
+//                        unlockView.layer.zPosition = unlockViewZPosition
+//                }
+//            }
         }
     }
     
@@ -150,7 +169,9 @@ class ViewController: UIViewController {
     
             if let animator = self.animator {
                 panRecognizer.isEnabled = false
-    
+   
+                animationFraction = animator.fractionComplete
+
                 switch currentState{
                 case .settingsOpened:
                     var rotationWithPerspectiveForUnlockVIew = CATransform3DIdentity;
@@ -158,7 +179,6 @@ class ViewController: UIViewController {
                     rotationWithPerspectiveForUnlockVIew = CATransform3DRotate(rotationWithPerspectiveForUnlockVIew, self.unlockView3DRotation, 0, 1, 0);
                     animator.addCompletion({ (position:UIViewAnimatingPosition) in
                         self.panRecognizer.isEnabled = true
-                        
                                         })
                     
                 case .unlockViewOpened:
@@ -174,11 +194,22 @@ class ViewController: UIViewController {
                 
                 let vector = CGVector(dx: velocity.x / 100, dy: velocity.y / 100)
                 let spgingParameters = UISpringTimingParameters(dampingRatio: 0.5, initialVelocity: vector)
-    
+//                animator.addAnimations {
+//                    if (animator.fractionComplete > 1/2){
+//                        self.settingsView.layer.zPosition = self.settingsViewZPosition
+//                        self.unlockView.layer.zPosition = self.unlockViewZPosition
+//                    }
+//                }
                 animator.continueAnimation(withTimingParameters: spgingParameters, durationFactor: 1)
+//                if (animator.state != .inactive){
+//                    if (animator.fractionComplete > 1/2){
+//                        settingsView.layer.zPosition = settingsViewZPosition
+//                        unlockView.layer.zPosition = unlockViewZPosition
+//                    }
+ //               }
             }
         }
-    
+
     
     
 }
