@@ -24,6 +24,8 @@ class ViewController: UIViewController {
     var settingsViewAlpha: CGFloat = 0
     var unlockViewAlpha: CGFloat = 1
     
+    
+    
     var settingsView3DRotation: CGFloat = CGFloat.pi
     var unlockView3DRotation: CGFloat = CGFloat(0)
     
@@ -155,12 +157,6 @@ class ViewController: UIViewController {
             }
             animator.fractionComplete = progress
             animationFraction = animator.fractionComplete
-//            while (animator.state != .inactive){
-//                if (Float(progress) > 1/2){
-//                        settingsView.layer.zPosition = settingsViewZPosition
-//                        unlockView.layer.zPosition = unlockViewZPosition
-//                }
-//            }
         }
     }
     
@@ -194,19 +190,7 @@ class ViewController: UIViewController {
                 
                 let vector = CGVector(dx: velocity.x / 100, dy: velocity.y / 100)
                 let spgingParameters = UISpringTimingParameters(dampingRatio: 0.5, initialVelocity: vector)
-//                animator.addAnimations {
-//                    if (animator.fractionComplete > 1/2){
-//                        self.settingsView.layer.zPosition = self.settingsViewZPosition
-//                        self.unlockView.layer.zPosition = self.unlockViewZPosition
-//                    }
-//                }
                 animator.continueAnimation(withTimingParameters: spgingParameters, durationFactor: 1)
-//                if (animator.state != .inactive){
-//                    if (animator.fractionComplete > 1/2){
-//                        settingsView.layer.zPosition = settingsViewZPosition
-//                        unlockView.layer.zPosition = unlockViewZPosition
-//                    }
- //               }
             }
         }
 
