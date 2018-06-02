@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartLock-flippingAViewController/ViewController.swift"
-            timestampString = "548920838.357758"
+            timestampString = "549612119.36202"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
-            landmarkName = "startPanning()"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "flipViews(detectedBy:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartLock-flippingAViewController/ViewController.swift"
-            timestampString = "548920838.397579"
+            timestampString = "549612119.363961"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
             landmarkName = "startPanning()"
             landmarkType = "7">
          </BreakpointContent>

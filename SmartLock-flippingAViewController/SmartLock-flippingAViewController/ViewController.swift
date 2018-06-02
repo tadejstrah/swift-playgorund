@@ -38,6 +38,20 @@ class ViewController: UIViewController {
             settingsView.layer.zPosition = settingsViewZPosition
             unlockView.layer.zPosition = unlockViewZPosition
             }
+            else{
+                if settingsViewZPosition == 1{
+                    settingsView.layer.zPosition = 0
+                }
+                else{
+                    settingsView.layer.zPosition = 1
+                }
+                if unlockViewZPosition == 1{
+                    unlockView.layer.zPosition = 0
+                }
+                else{
+                    unlockView.layer.zPosition = 1
+                }
+            }
         }
     }
     
@@ -124,16 +138,16 @@ class ViewController: UIViewController {
             
             var rotationWithPerspectiveForUnlockVIew = CATransform3DIdentity;
             rotationWithPerspectiveForUnlockVIew.m34 = self.matriceForRotationUnlockView/1000
-            rotationWithPerspectiveForUnlockVIew = CATransform3DRotate(rotationWithPerspectiveForUnlockVIew, self.unlockView3DRotation, 0, 1, 0);
+            rotationWithPerspectiveForUnlockVIew = CATransform3DRotate(rotationWithPerspectiveForUnlockVIew, self.unlockView3DRotation, 0, -1, 0);
            
             var rotationWithPerspectiveForSettingsView = CATransform3DIdentity;
             rotationWithPerspectiveForSettingsView.m34 = self.matriceForRotationSettingsView/1000 //500.0/2/2
-            rotationWithPerspectiveForSettingsView = CATransform3DRotate(rotationWithPerspectiveForSettingsView, self.settingsView3DRotation, 0, 1, 0);
+            rotationWithPerspectiveForSettingsView = CATransform3DRotate(rotationWithPerspectiveForSettingsView, self.settingsView3DRotation, 0, -1, 0);
             
             self.unlockView.layer.transform = rotationWithPerspectiveForUnlockVIew
             self.settingsView.layer.transform = rotationWithPerspectiveForSettingsView
-  
         })
+        
           animationFraction = animator!.fractionComplete
         
     }
@@ -146,12 +160,9 @@ class ViewController: UIViewController {
             
             switch currentState {
             case .unlockViewOpened, .settingsOpened:
-                  progress = translation.x / self.view.frame.width
+                  progress = abs(translation.x / self.view.frame.width)
                   progressGlobal = progress
-                if (Float(progress) > 1/2){
 
-                }
-                print(progress)
             default:
                 print("unknown state")
             }
@@ -172,7 +183,7 @@ class ViewController: UIViewController {
                 case .settingsOpened:
                     var rotationWithPerspectiveForUnlockVIew = CATransform3DIdentity;
                     rotationWithPerspectiveForUnlockVIew.m34 = self.matriceForRotationUnlockView/500.0/2/2
-                    rotationWithPerspectiveForUnlockVIew = CATransform3DRotate(rotationWithPerspectiveForUnlockVIew, self.unlockView3DRotation, 0, 1, 0);
+                    rotationWithPerspectiveForUnlockVIew = CATransform3DRotate(rotationWithPerspectiveForUnlockVIew, self.unlockView3DRotation, 0, -1, 0);
                     animator.addCompletion({ (position:UIViewAnimatingPosition) in
                         self.panRecognizer.isEnabled = true
                                         })
@@ -180,7 +191,7 @@ class ViewController: UIViewController {
                 case .unlockViewOpened:
                     var rotationWithPerspectiveForSettingsView = CATransform3DIdentity;
                     rotationWithPerspectiveForSettingsView.m34 = self.matriceForRotationSettingsView/500.0/2/2
-                    rotationWithPerspectiveForSettingsView = CATransform3DRotate(rotationWithPerspectiveForSettingsView, self.settingsView3DRotation, 0, 1, 0);
+                    rotationWithPerspectiveForSettingsView = CATransform3DRotate(rotationWithPerspectiveForSettingsView, self.settingsView3DRotation, 0, -1, 0);
                     animator.addCompletion({ (position:UIViewAnimatingPosition) in
                         self.panRecognizer.isEnabled = true
                     })
