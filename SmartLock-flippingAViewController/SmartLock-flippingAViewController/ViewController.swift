@@ -57,7 +57,6 @@ class ViewController: UIViewController {
     
     var panRecognizer:UIPanGestureRecognizer!
 
-    var progressGlobal: CGFloat = 0
     
     @IBOutlet weak var unlockView: UIView!
     @IBOutlet weak var settingsView: UIView!
@@ -118,8 +117,8 @@ class ViewController: UIViewController {
             settingsView3DRotation = CGFloat.pi
             unlockView3DRotation = CGFloat.pi
             currentState = .settingsOpened
-            matriceForRotationUnlockView = 1
-            matriceForRotationSettingsView = 1
+            matriceForRotationUnlockView = -1
+            matriceForRotationSettingsView = -1
             
         case .settingsOpened:
             settingsViewZPosition = 0
@@ -127,8 +126,8 @@ class ViewController: UIViewController {
             settingsView3DRotation = 0
             unlockView3DRotation = 0
             currentState = .unlockViewOpened
-            matriceForRotationUnlockView = -1
-            matriceForRotationSettingsView = -1
+            matriceForRotationUnlockView = 1
+            matriceForRotationSettingsView = 1
             
         default:
             print("unknown state")
@@ -161,7 +160,6 @@ class ViewController: UIViewController {
             switch currentState {
             case .unlockViewOpened, .settingsOpened:
                   progress = abs(translation.x / self.view.frame.width)
-                  progressGlobal = progress
 
             default:
                 print("unknown state")

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="834-rd-5yn">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="5Pa-M1-sYQ">
+            <objects>
+                <navigationController id="834-rd-5yn" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2Rl-gj-PMb">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.085559971630573273" green="0.77947276830673218" blue="0.3321802020072937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="iGN-Hn-kZg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fO2-N9-9l4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1118" y="133"/>
+        </scene>
+        <!--Base View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="baseViewController" customModule="flip_the_views2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="baseView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hKa-G5-lor">
+                                <rect key="frame" x="0.0" y="74" width="375" height="583"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group 17" translatesAutoresizingMaskIntoConstraints="NO" id="VTG-Hc-tu8">
+                                        <rect key="frame" x="-0.5" y="-0.5" width="375" height="583"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="VTG-Hc-tu8" firstAttribute="width" secondItem="hKa-G5-lor" secondAttribute="width" id="2em-cO-i4X"/>
+                                    <constraint firstItem="VTG-Hc-tu8" firstAttribute="centerX" secondItem="hKa-G5-lor" secondAttribute="centerX" id="Jna-a5-TCi"/>
+                                    <constraint firstItem="VTG-Hc-tu8" firstAttribute="centerY" secondItem="hKa-G5-lor" secondAttribute="centerY" id="gYa-hZ-eii"/>
+                                    <constraint firstItem="VTG-Hc-tu8" firstAttribute="height" secondItem="hKa-G5-lor" secondAttribute="height" id="onu-N6-y6j"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OVj-2x-2Fr">
+                                <rect key="frame" x="16" y="74" width="343" height="583"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group 16" translatesAutoresizingMaskIntoConstraints="NO" id="Lnt-Ql-vLu">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="583"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Lnt-Ql-vLu" firstAttribute="height" secondItem="OVj-2x-2Fr" secondAttribute="height" id="PDo-8F-aNs"/>
+                                    <constraint firstItem="Lnt-Ql-vLu" firstAttribute="centerY" secondItem="OVj-2x-2Fr" secondAttribute="centerY" id="ZMe-ME-vin"/>
+                                    <constraint firstItem="Lnt-Ql-vLu" firstAttribute="width" secondItem="OVj-2x-2Fr" secondAttribute="width" id="mUL-Xy-vsA"/>
+                                    <constraint firstItem="Lnt-Ql-vLu" firstAttribute="centerX" secondItem="OVj-2x-2Fr" secondAttribute="centerX" id="qpM-R6-rLW"/>
+                                </constraints>
+                            </view>
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a9t-QT-flQ">
+                                <rect key="frame" x="163" y="344" width="48" height="42"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="FLIP">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="onButtonPressedflipTheViews:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KYB-GT-4pk"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBY-OJ-ELb">
+                                <rect key="frame" x="166" y="626" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OBY-OJ-ELb" secondAttribute="bottom" constant="20" id="3wI-NO-hC0"/>
+                            <constraint firstItem="OBY-OJ-ELb" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="3wK-Kc-voI"/>
+                            <constraint firstItem="hKa-G5-lor" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="EIs-h5-wLI"/>
+                            <constraint firstItem="hKa-G5-lor" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="FsX-mT-Agf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OVj-2x-2Fr" secondAttribute="bottom" constant="10" id="Lzr-NO-GHR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="hKa-G5-lor" secondAttribute="bottom" constant="10" id="MLI-AO-80p"/>
+                            <constraint firstItem="a9t-QT-flQ" firstAttribute="centerY" secondItem="VTG-Hc-tu8" secondAttribute="centerY" id="Riy-w2-k4a"/>
+                            <constraint firstItem="OVj-2x-2Fr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="bFg-4Y-9EE"/>
+                            <constraint firstItem="hKa-G5-lor" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="llz-Tm-0Ys"/>
+                            <constraint firstItem="a9t-QT-flQ" firstAttribute="centerX" secondItem="VTG-Hc-tu8" secondAttribute="centerX" id="mkA-wE-PnS"/>
+                            <constraint firstItem="OVj-2x-2Fr" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="mzY-Gh-HtL"/>
+                            <constraint firstItem="OVj-2x-2Fr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="nmL-HC-zWe"/>
+                            <constraint firstItem="hKa-G5-lor" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="vo4-zs-4S1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="jbH-df-Qmm"/>
+                    <connections>
+                        <outlet property="backSideView" destination="hKa-G5-lor" id="hMb-aY-9Wj"/>
+                        <outlet property="baseView" destination="8bC-Xf-vdC" id="HR7-nS-NuO"/>
+                        <outlet property="frontSideView" destination="OVj-2x-2Fr" id="65K-dR-NJ4"/>
+                        <outlet property="statusLabel" destination="OBY-OJ-ELb" id="CVv-Rt-Z5k"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-322.39999999999998" y="132.68365817091455"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Group 16" width="280" height="556"/>
+        <image name="Group 17" width="280" height="556"/>
+    </resources>
+</document>
