@@ -9,13 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SmartLock-flippingAViewController/ViewController.swift"
-            timestampString = "549911915.8923841"
+            filePath = "flip_the_views2/baseViewController.swift"
+            timestampString = "549918354.399479"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
-            landmarkName = "flipViews(detectedBy:)"
+            startingLineNumber = "184"
+            endingLineNumber = "184"
+            landmarkName = "endAnimation(translation:velocity:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SmartLock-flippingAViewController/ViewController.swift"
-            timestampString = "549911915.911422"
+            filePath = "flip_the_views2/baseViewController.swift"
+            timestampString = "549918354.399894"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
-            landmarkName = "startPanning()"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
+            landmarkName = "endAnimation(translation:velocity:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
