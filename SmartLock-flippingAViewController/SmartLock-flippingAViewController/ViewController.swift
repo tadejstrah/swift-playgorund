@@ -96,7 +96,8 @@ class ViewController: UIViewController {
         case .began:
             startPanning()
         case .changed:
-            flipState = recognizer.translation(in: recognizer.view!).x
+            //flipState = recognizer.translation(in: recognizer.view!).x
+            flipState = animator!.fractionComplete
             doTheFlipping(translation: translation )
         case .ended:
             flipState = CGFloat(recognizer.view!.frame.width)
@@ -159,8 +160,7 @@ class ViewController: UIViewController {
             
             switch currentState {
             case .unlockViewOpened, .settingsOpened:
-                  progress = abs(translation.x / self.view.frame.width)
-
+                progress = abs(translation.x / self.view.frame.width * 2)
             default:
                 print("unknown state")
             }

@@ -64,17 +64,6 @@
                                     <constraint firstItem="Lnt-Ql-vLu" firstAttribute="centerX" secondItem="OVj-2x-2Fr" secondAttribute="centerX" id="qpM-R6-rLW"/>
                                 </constraints>
                             </view>
-                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a9t-QT-flQ">
-                                <rect key="frame" x="163" y="344" width="48" height="42"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="FLIP">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="onButtonPressedflipTheViews:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KYB-GT-4pk"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBY-OJ-ELb">
                                 <rect key="frame" x="166" y="626" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -90,10 +79,8 @@
                             <constraint firstItem="hKa-G5-lor" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="FsX-mT-Agf"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OVj-2x-2Fr" secondAttribute="bottom" constant="10" id="Lzr-NO-GHR"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="hKa-G5-lor" secondAttribute="bottom" constant="10" id="MLI-AO-80p"/>
-                            <constraint firstItem="a9t-QT-flQ" firstAttribute="centerY" secondItem="VTG-Hc-tu8" secondAttribute="centerY" id="Riy-w2-k4a"/>
                             <constraint firstItem="OVj-2x-2Fr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="bFg-4Y-9EE"/>
                             <constraint firstItem="hKa-G5-lor" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="llz-Tm-0Ys"/>
-                            <constraint firstItem="a9t-QT-flQ" firstAttribute="centerX" secondItem="VTG-Hc-tu8" secondAttribute="centerX" id="mkA-wE-PnS"/>
                             <constraint firstItem="OVj-2x-2Fr" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="mzY-Gh-HtL"/>
                             <constraint firstItem="OVj-2x-2Fr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="nmL-HC-zWe"/>
                             <constraint firstItem="hKa-G5-lor" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="vo4-zs-4S1"/>
