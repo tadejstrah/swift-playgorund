@@ -48,7 +48,9 @@ class baseViewController: UIViewController {
                 }
             didChangeZIndexes = true
             }
-        }
+
+			
+		}
     }
     
     @IBOutlet weak var frontSideView: UIView!
