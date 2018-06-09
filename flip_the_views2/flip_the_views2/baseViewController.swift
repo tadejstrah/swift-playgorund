@@ -60,8 +60,14 @@ class baseViewController: UIViewController {
     }
     
     @IBOutlet var baseView: UIView!
-    
-    var rotationWay: Double = 1.0
+
+
+	
+	@IBAction func changestate(_ sender: Any) {
+		currentState.changeState()
+	}
+	
+	var rotationWay: Double = 1.0
     
     var frontSideViewRotationState: CGFloat{
         switch currentState{
@@ -122,6 +128,8 @@ class baseViewController: UIViewController {
             self.perform3DTransforms()
         })
         animationFraction = animator!.fractionComplete
+        animator!.pausesOnCompletion = true
+		print(animator ?? "neki")
     }
     
     func doTheFlipping(translation: CGPoint, velocity:CGPoint){
@@ -130,7 +138,7 @@ class baseViewController: UIViewController {
             progress = abs(translation.x / self.view.frame.width * 2)
             switch currentState{
             case .settingsViewOpened:
-                print("settings view opened, translation: \(translation.x)")
+//                print("settings view opened, translation: \(translation.x)")
                 if translation.x < 0{
                     animator.isReversed = false
                 }
@@ -138,7 +146,7 @@ class baseViewController: UIViewController {
                     animator.isReversed = true
                     }
             case .unlockViewOpened:
-                print("unlock view opened, translation: \(translation.x)")
+//                print("unlock view opened, translation: \(translation.x)")
                 if translation.x < 0{
                     animator.isReversed = true
                 }
@@ -148,7 +156,7 @@ class baseViewController: UIViewController {
             default: animator.isReversed = true
 
         }
-            print(animator.isReversed)
+        //    print(animator.isReversed)
             animator.fractionComplete = progress
             animationFraction = animator.fractionComplete
         }
@@ -159,40 +167,22 @@ class baseViewController: UIViewController {
     func endAnimation (translation:CGPoint, velocity:CGPoint) {
         
         if let animator = self.animator {
-            panGestureRecognizer.isEnabled = false
-            
+            //panGestureRecognizer.isEnabled = false
+            print(animator)
             animationFraction = animator.fractionComplete
             
             switch currentState {
             case .unlockViewOpened:
                 if animationFraction >= 1 / 2 {
-                    animator.isReversed = false
-                    animator.addCompletion ({ (position: UIViewAnimatingPosition) in
-                        self.currentState = .settingsViewOpened
-                        self.panGestureRecognizer.isEnabled = true
-                    })
+					self.currentState = .settingsViewOpened
                 } else {
-                    animator.isReversed = true
-                    animator.addCompletion ({ (position: UIViewAnimatingPosition) in
-                        self.currentState = .unlockViewOpened
-                        self.panGestureRecognizer.isEnabled = true
-                    })
-                animator.isReversed = false
+                    animator.isReversed = !animator.isReversed
                 }
             case .settingsViewOpened:
                 if animationFraction >= 1 / 2  {
-                    animator.isReversed = false
-                    animator.addCompletion ({ (position: UIViewAnimatingPosition) in
-                        self.currentState = .unlockViewOpened
-                        self.panGestureRecognizer.isEnabled = true
-                    })
+					self.currentState = .unlockViewOpened
                 } else {
-                    animator.isReversed = true
-                    animator.addCompletion ({ (position: UIViewAnimatingPosition) in
-                        self.currentState = .settingsViewOpened
-                        self.panGestureRecognizer.isEnabled = true
-                    })
-                animator.isReversed = true
+					animator.isReversed = !animator.isReversed
                 }
             default:
                 print("Unknown state")
@@ -201,7 +191,6 @@ class baseViewController: UIViewController {
             let vector = CGVector(dx: velocity.x / 100, dy: velocity.y / 100)
             let spgingParameters = UISpringTimingParameters(dampingRatio: 0.5, initialVelocity: vector)
             animator.continueAnimation(withTimingParameters: spgingParameters, durationFactor: 1)
-            print("neki \(animator.isReversed)")
             didChangeZIndexes = false
         }
     }

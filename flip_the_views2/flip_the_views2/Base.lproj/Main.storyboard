@@ -70,15 +70,24 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfx-8B-Gsd">
+                                <rect key="frame" x="164" y="350.5" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="changestate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="apH-RI-Xz6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OBY-OJ-ELb" secondAttribute="bottom" constant="20" id="3wI-NO-hC0"/>
                             <constraint firstItem="OBY-OJ-ELb" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="3wK-Kc-voI"/>
+                            <constraint firstItem="dfx-8B-Gsd" firstAttribute="centerY" secondItem="Lnt-Ql-vLu" secondAttribute="centerY" id="40t-JO-vhA"/>
                             <constraint firstItem="hKa-G5-lor" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="EIs-h5-wLI"/>
                             <constraint firstItem="hKa-G5-lor" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="FsX-mT-Agf"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OVj-2x-2Fr" secondAttribute="bottom" constant="10" id="Lzr-NO-GHR"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="hKa-G5-lor" secondAttribute="bottom" constant="10" id="MLI-AO-80p"/>
+                            <constraint firstItem="dfx-8B-Gsd" firstAttribute="centerX" secondItem="Lnt-Ql-vLu" secondAttribute="centerX" id="UDC-p5-Iip"/>
                             <constraint firstItem="OVj-2x-2Fr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="bFg-4Y-9EE"/>
                             <constraint firstItem="hKa-G5-lor" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="llz-Tm-0Ys"/>
                             <constraint firstItem="OVj-2x-2Fr" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="mzY-Gh-HtL"/>
@@ -87,7 +96,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="jbH-df-Qmm"/>
+                    <navigationItem key="navigationItem" id="jbH-df-Qmm">
+                        <nil key="title"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="backSideView" destination="hKa-G5-lor" id="hMb-aY-9Wj"/>
                         <outlet property="baseView" destination="8bC-Xf-vdC" id="HR7-nS-NuO"/>
